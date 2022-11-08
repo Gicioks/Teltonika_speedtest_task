@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+//trash playground, ignore
 namespace Teltonika_speedtest_task
 {
     internal class Program
@@ -21,6 +22,7 @@ namespace Teltonika_speedtest_task
                 var speedtest = await SpeedTestClient.GetDownloadSpeed();
             }).Wait();
             
+
             //Console.WriteLine(SelectDevice());
 
             /*
@@ -55,8 +57,6 @@ namespace Teltonika_speedtest_task
 
             return speed;
         }
-
-        //static async Task<>
 
         static int SelectDevice()
         {

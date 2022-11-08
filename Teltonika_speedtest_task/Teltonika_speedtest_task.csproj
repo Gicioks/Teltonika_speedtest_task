@@ -58,8 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Json_Reader.cs" />
-    <Compile Include="SSH_Client.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="SSH_Client.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

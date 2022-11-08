@@ -16,9 +16,9 @@ namespace Teltonika_speedtest_task
 
         private JObject json = null;
 
-        public Json_Reader()
+        public Json_Reader(string json_path="..\\..\\config.json")
         {
-            json_path = "..\\..\\config.json";
+            this.json_path = json_path;
             ReadConfig();
 
             test_count = (int) json["test_count"];

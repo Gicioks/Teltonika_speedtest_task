@@ -1,0 +1,17 @@
+{
+  "test_count": 3,
+  "devices": [
+    {
+      "device": "RUTX11",
+      "ip": "192.168.9.1",
+      "password": "Kaunastlt1",
+      "pass_test": "100 Mbps"
+    },
+    {
+      "device": "RUT240",
+      "ip": "192.168.59.1",
+      "password": "Kaunastlt1",
+      "pass_test": "50 Mbps"
+    }
+  ]
+}

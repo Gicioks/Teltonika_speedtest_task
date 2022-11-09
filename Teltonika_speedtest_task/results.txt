@@ -1,0 +1,2 @@
+RUTX11 Failed 47,95 Mbps
+RUT240 Failed Connection not established

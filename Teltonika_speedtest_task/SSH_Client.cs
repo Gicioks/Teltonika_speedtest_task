@@ -9,24 +9,24 @@ public class SSH_client
 {
 	private SshClient client = null;
 
-	private string IP = null;
-	private int Port = -1;
-	private string User = null;
-	private string Password = null;
+	private string ip = null;
+	private int port = -1;
+	private string user = null;
+	private string password = null;
 
 	/// <summary>
 	/// SSH client
 	/// </summary>
-	/// <param name="IP">Device IP</param>
-	/// <param name="User">Username</param>
-	/// <param name="Password">Password</param>
-	/// <param name="Port">SSH Port</param>
-	public SSH_client(string IP = "192.168.1.1", int Port = 22, string User="root", string Password="admin01")
+	/// <param name="ip">Device IP</param>
+	/// <param name="user">Username</param>
+	/// <param name="password">Password</param>
+	/// <param name="port">SSH Port</param>
+	public SSH_client(string ip = "192.168.1.1", int port = 22, string user="root", string password="admin01")
     {
-		this.IP = IP;
-		this.Port = Port;
-		this.User = User;
-		this.Password = Password;
+		this.ip = ip;
+		this.port = port;
+		this.user = user;
+		this.password = password;
 
 		Connect();
     }
@@ -35,8 +35,12 @@ public class SSH_client
     {
 		if (client == null)
 		{
-			client = new SshClient(IP, Port, User, Password);
-			client.Connect();
+			client = new SshClient(ip, port, user, password);
+			try
+			{
+				client.Connect();
+			}
+			catch (Exception e) { }
 		}
     }
 
@@ -52,12 +56,22 @@ public class SSH_client
         }
     }
 
+	public bool IsConnected()
+	{
+		if (client == null)
+		{
+			return false;
+		}
+
+		return client.IsConnected;
+	}
+
 	public string ExecuteCommand(string cmd)
     {
 		string result = null;
 		//string error = null;
 
-		if (client != null && cmd != null && cmd.Length > 0)
+		if (IsConnected() && cmd != null && cmd.Length > 0)
         {
 			var command = client.CreateCommand(cmd);
 			command.Execute();
@@ -72,10 +86,7 @@ public class SSH_client
 
 	public string GetDevice()
     {
-		string response = null;
-		response = ExecuteCommand("cat /etc/config/system | grep routername | awk -F\"'\" '{print $2}'").Trim();
-
-		return response;
+		return ExecuteCommand("cat /etc/config/system | grep routername | awk -F\"'\" '{print $2}'").Trim();
     }
 }
 

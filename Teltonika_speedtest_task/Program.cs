@@ -1,12 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
-using SpeedTest.Net;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 //trash playground, ignore
 namespace Teltonika_speedtest_task
